@@ -1,7 +1,15 @@
+import GalleryTabs from "../../components/GalleryTabs/GalleryTabs";
+import HeroBanner from "../../components/HeroBanner/HeroBanner";
+import TopCategories from "../../components/TopCategories/TopCategories";
+
 const Home = () => {
   return (
-    <div>Home</div>
-  )
-}
+    <>
+      <HeroBanner />
+      <TopCategories />
+      <GalleryTabs />
+    </>
+  );
+};
 
-export default Home
+export default Home;

@@ -1,18 +1,14 @@
 import "./App.css";
-import GalleryTabs from "./components/GalleryTabs/GalleryTabs";
-import HeroBanner from "./components/HeroBanner/HeroBanner";
+import Footer from "./components/Footer/Footer";
 import Navbar from "./components/Navbar/Navbar";
-import TopCategories from "./components/TopCategories/TopCategories";
+import Home from "./pages/Home/Home";
 
 function App() {
   return (
     <>
-      <div>
-        <Navbar />
-        <HeroBanner />
-        <TopCategories />
-        <GalleryTabs />
-      </div>
+      <Navbar />
+      <Home />
+      <Footer />
     </>
   );
 }
