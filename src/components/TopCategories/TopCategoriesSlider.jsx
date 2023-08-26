@@ -31,6 +31,8 @@ const TopCategoriesSlider = () => {
         ) => (
           <SwiperSlide key={index}>
             <div className="each-slider aspect-[229/117] relative">
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black w-full h-full opacity-30">
+              </div>
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-secondary font-medium text-base">
                 <span>{image?.photographer}</span>
               </div>
