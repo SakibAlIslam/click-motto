@@ -18,7 +18,7 @@ const GalleryTabs = () => {
   }, [currentPage]);
 
   return (
-    <section className="GalleryTabsSection mx-auto px-8 md:px-[128px] mb-24">
+    <section className="GalleryTabsSection mx-auto px-4 md:px-[128px] mb-8 md:mb-24">
       <div className="GalleryTabsContainer">
         <div className="GalleryTabs border-none flex items-center justify-between">
           <ul
@@ -56,7 +56,7 @@ const GalleryTabs = () => {
               type="button"
             >
               <div className="flex gap-2 items-center">
-                <span className="text-base text-black">Recommended</span>
+                <span className="text-base text-black hidden md:block">Recommended</span>
                 <AiOutlineCaretDown size={"12px"} color={"black"} />
               </div>
             </Button>

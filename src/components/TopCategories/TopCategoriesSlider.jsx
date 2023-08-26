@@ -16,11 +16,31 @@ const TopCategoriesSlider = () => {
 
   return (
     <Swiper
-      spaceBetween={32}
-      slidesPerView={5}
       navigation={true}
       modules={[Navigation]}
       className="mySwiper"
+      breakpoints= {{
+        240: {
+          slidesPerView: 1,
+          spaceBetween: 10
+        },
+        540: {
+          slidesPerView: 2,
+          spaceBetween: 16
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 20
+        },
+        1024: {
+          slidesPerView: 4,
+          spaceBetween: 24
+        },
+        1536: {
+          slidesPerView: 5,
+          spaceBetween: 32
+        }
+      }}
     >
       {images?.map(
         (
@@ -31,7 +51,7 @@ const TopCategoriesSlider = () => {
             <div className="each-slider aspect-[229/117] relative">
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black w-full h-full opacity-30">
               </div>
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-secondary font-medium text-xs">
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-secondary font-medium text-base md:text-xs">
                 <span>{image?.photographer}</span>
               </div>
               <img
