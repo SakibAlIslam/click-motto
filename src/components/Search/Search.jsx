@@ -43,6 +43,7 @@ const Search = ({ placeholder = "Search..." }) => {
               className="bg-secondary border-none outline-none text-[#333333] text-base md:text-[22px] focus:ring-transparent focus:border-transparent block w-full p-0 "
               placeholder={placeholder}
               required
+              autoFocus
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />

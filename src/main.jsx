@@ -7,11 +7,16 @@ import * as ReactDOM from "react-dom/client";
 import "./index.css";
 import "flowbite";
 import "./App.css";
+import NotFound from "./pages/404/NotFound";
 
 const routes = [
   {
     element: <AppLayout />,
     children: [
+      {
+        path: '*',
+        element:<NotFound />
+      },
       {
         path: "/",
         element: <Home />,
