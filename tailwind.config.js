@@ -12,8 +12,10 @@ export default {
         tertiary: "#818181",
       },
       borderRadius: {
-        DEFAULT: "5px",
+        DEFAULT: "6px",
         medium: "10px",
+        large: "20px",
+        xl: "30px",
       },
     },
   },
