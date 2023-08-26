@@ -1,9 +1,35 @@
-const Search = ({
-    placeholder = "Search..."
-}) => {
+import axios from "axios";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+const Search = ({ placeholder = "Search..." }) => {
+  const [searchQuery, setSearchQuery] = useState("");
+  let navigate = useNavigate();
+
+  const handleSearch = async (event) => {
+    event.preventDefault();
+
+    try {
+      const response = await axios.get(`https://api.pexels.com/v1/search`, {
+        headers: {
+          Authorization: '70s1tgPXz4klLnwEGkTUrKuwOJXGfeJ0d6bye3HWGi3IbCQbfnVqEO6V'
+        },
+        params: {
+          query: searchQuery
+        }
+      });
+
+      // Navigate to the search results page
+      navigate("search", { state: searchQuery });
+      // history.push(`/search?query=${encodeURIComponent(searchQuery)}`);
+    } catch (error) {
+      console.error('Error fetching data from Pexels API:', error);
+    }
+  };
+  
   return (
     <>
-      <form className="flex items-center">
+      <form onSubmit={handleSearch} className="flex items-center">
         <label htmlFor="simple-search" className="sr-only">
           Search
         </label>
@@ -15,12 +41,11 @@ const Search = ({
               className="bg-secondary border-none outline-none text-[#333333] text-base md:text-[22px] focus:ring-transparent focus:border-transparent block w-full p-0 "
               placeholder={placeholder}
               required
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
             />
           </div>
-          <button
-            type="submit"
-            className="text-sm font-medium text-black"
-          >
+          <button type="submit" className="text-sm font-medium text-black">
             <svg
               className="w-4 h-4"
               aria-hidden="true"

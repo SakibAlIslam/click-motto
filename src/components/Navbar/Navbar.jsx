@@ -1,17 +1,18 @@
 import { CiMenuKebab } from "react-icons/ci";
 import Button from "../Button/Button";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <nav className="bg-secondary">
       <div className="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="#" className="flex items-center">
+        <Link to="/" className="flex items-center">
           <img
             src="https://i.ibb.co/rvy3w7P/Group-289.png"
             className="h-8 mr-3"
-            alt="Flowbite Logo"
+            alt="logo"
           />
-        </a>
+        </Link>
         <button
           data-collapse-toggle="navbar-solid-bg"
           type="button"
@@ -72,13 +73,13 @@ const Navbar = () => {
               </a>
             </li>
             <li>
-                <Button variant='outlined'>Join Free</Button>
+              <Button variant="outlined">Join Free</Button>
             </li>
             <li>
-                <Button variant='neutral'>Login</Button>
+              <Button variant="neutral">Login</Button>
             </li>
             <li>
-                <Button>Join Free</Button>
+              <Button>Join Free</Button>
             </li>
           </ul>
         </div>
