@@ -1,0 +1,11 @@
+.masonryContainer {
+  margin: 0 auto;
+  padding: 0 128px;
+  width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .masonryContainer {
+    padding: 0 32px;
+  }
+}
