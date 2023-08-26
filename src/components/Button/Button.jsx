@@ -14,11 +14,13 @@ const classes = {
   },
   variant: {
     primary:
-      "bg-primary hover:bg-[#e15600] focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 text-secondary rounded-medium",
+      "bg-primary hover:bg-[#e15600] focus:ring-2 focus:ring-primary focus:ring-opacity-50 text-secondary rounded-medium",
     secondary:
       "bg-gray-200 hover:bg-gray-800 focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 text-gray-900 hover:text-white rounded-medium",
-    danger:
-      "bg-red-500 hover:bg-red-800 focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 text-white rounded-medium",
+    neutral:
+      "bg-secondary hover:opacity-70 text-tertiary border-none",
+    outlined:
+        "border border-tertiary bg-transparent focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 text-tertiary hover:opacity-70 rounded-medium",
   },
 };
 

@@ -72,6 +72,12 @@ const Navbar = () => {
               </a>
             </li>
             <li>
+                <Button variant='outlined'>Join Free</Button>
+            </li>
+            <li>
+                <Button variant='neutral'>Login</Button>
+            </li>
+            <li>
                 <Button>Join Free</Button>
             </li>
           </ul>

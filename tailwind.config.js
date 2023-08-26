@@ -8,7 +8,8 @@ export default {
     extend: {
       colors: {
         primary: "#E17800",
-        secondary: "#FFF"
+        secondary: "#FFF",
+        tertiary: "#818181",
       },
       borderRadius: {
         DEFAULT: "5px",
