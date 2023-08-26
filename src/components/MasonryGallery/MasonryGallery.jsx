@@ -1,7 +1,16 @@
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
+import PropTypes from "prop-types";
+import Pagination from "../Pagination/Pagination";
 import Spinner from "../Spinner/Spinner";
 
-const MasonryGallery = ({ loading, contents, activeTab }) => {
+const MasonryGallery = ({
+  loading,
+  contents,
+  totalPages,
+  activeTab,
+  currentPage,
+  setCurrentPage,
+}) => {
   return (
     <div>
       {loading ? (
@@ -17,7 +26,10 @@ const MasonryGallery = ({ loading, contents, activeTab }) => {
               <div key={content.id} className="masonry-item">
                 {activeTab === 3 ? (
                   <video controls>
-                    <source src={content?.video_files[0]?.link} type={content?.video_files[0]?.file_type} />
+                    <source
+                      src={content?.video_files[0]?.link}
+                      type={content?.video_files[0]?.file_type}
+                    />
                   </video>
                 ) : (
                   <img
@@ -31,15 +43,26 @@ const MasonryGallery = ({ loading, contents, activeTab }) => {
           </Masonry>
         </ResponsiveMasonry>
       )}
-      {/* <div className="pagination mx-auto my-4">
-        <Pagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          setCurrentPage={setCurrentPage}
-        />
-      </div> */}
+      {activeTab === 1 && (
+        <div className="pagination mx-auto my-4">
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            setCurrentPage={setCurrentPage}
+          />
+        </div>
+      )}
     </div>
   );
+};
+
+MasonryGallery.propTypes = {
+  loading: PropTypes.bool.isRequired,
+  contents: PropTypes.array.isRequired,
+  activeTab: PropTypes.number.isRequired,
+  currentPage: PropTypes.number.isRequired,
+  totalPages: PropTypes.number.isRequired,
+  setCurrentPage: PropTypes.func.isRequired,
 };
 
 export default MasonryGallery;

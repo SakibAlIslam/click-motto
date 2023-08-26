@@ -9,11 +9,13 @@ const GalleryTabs = () => {
   const [activeTab, setActiveTab] = useState(1);
   const [loading, setLoading] = useState(true);
   const [contents, setContent] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1); // Current page number
   const contentsPerPage = 27; // Number of contents per page
+  const totalPages = 5;
 
   useEffect(() => {
-    allCollectionsPagination(contentsPerPage, setContent, setLoading);
-  }, []);
+    allCollectionsPagination(contentsPerPage, currentPage, setContent, setLoading);
+  }, [currentPage]);
 
   return (
     <section className="GalleryTabsSection mx-auto px-8 md:px-[128px] mb-24">
@@ -106,7 +108,10 @@ const GalleryTabs = () => {
         <MasonryGallery 
             loading={loading}
             contents={contents}
+            totalPages={totalPages}
             activeTab={activeTab}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
         />
       </div>
     </section>
