@@ -1,13 +1,19 @@
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
-// Import Swiper styles
 import "swiper/css";
-import 'swiper/css/navigation';
-// import required modules
-import { Navigation } from 'swiper/modules';
+import "swiper/css/navigation";
+import { Navigation } from "swiper/modules";
+import { useEffect, useState } from "react";
+import { getAllTopCategories } from "../../api/api";
 
 const TopCategoriesSlider = () => {
+  const [images, setImage] = useState([]);
+  const contentsPerPage = 6;
+
+  useEffect(() => {
+    getAllTopCategories(contentsPerPage, setImage);
+  }, []);
+
   return (
     <Swiper
       spaceBetween={32}
@@ -18,51 +24,25 @@ const TopCategoriesSlider = () => {
       modules={[Navigation]}
       className="mySwiper"
     >
-      <SwiperSlide>
-        <div className="each-slider aspect-[229/117]">
-            <img className="h-full w-full" src="https://i.ibb.co/GdH4rmJ/bailey-zindel-NRQV-h-BF10-M-unsplash.jpg" alt="" />
-        </div>
-        </SwiperSlide>
-      <SwiperSlide>
-        <div className="each-slider aspect-[229/117]">
-            <img className="h-full w-full" src="https://i.ibb.co/GdH4rmJ/bailey-zindel-NRQV-h-BF10-M-unsplash.jpg" alt="" />
-        </div>
-        </SwiperSlide>
-      <SwiperSlide>
-        <div className="each-slider aspect-[229/117]">
-            <img className="h-full w-full" src="https://i.ibb.co/GdH4rmJ/bailey-zindel-NRQV-h-BF10-M-unsplash.jpg" alt="" />
-        </div>
-        </SwiperSlide>
-      <SwiperSlide>
-        <div className="each-slider aspect-[229/117]">
-            <img className="h-full w-full" src="https://i.ibb.co/GdH4rmJ/bailey-zindel-NRQV-h-BF10-M-unsplash.jpg" alt="" />
-        </div>
-        </SwiperSlide>
-      <SwiperSlide>
-        <div className="each-slider aspect-[229/117]">
-            <img className="h-full w-full" src="https://i.ibb.co/GdH4rmJ/bailey-zindel-NRQV-h-BF10-M-unsplash.jpg" alt="" />
-        </div>
-        </SwiperSlide>
-      <SwiperSlide>
-        <div className="each-slider aspect-[229/117]">
-            <img className="h-full w-full" src="https://i.ibb.co/GdH4rmJ/bailey-zindel-NRQV-h-BF10-M-unsplash.jpg" alt="" />
-        </div>
-        </SwiperSlide>
-      <SwiperSlide>
-        <div className="each-slider aspect-[229/117]">
-            <img className="h-full w-full" src="https://i.ibb.co/GdH4rmJ/bailey-zindel-NRQV-h-BF10-M-unsplash.jpg" alt="" />
-        </div>
-        </SwiperSlide>
-      <SwiperSlide>
-        <div className="each-slider aspect-[229/117]">
-            <img className="h-full w-full" src="https://i.ibb.co/GdH4rmJ/bailey-zindel-NRQV-h-BF10-M-unsplash.jpg" alt="" />
-        </div>
-        </SwiperSlide>
-      <SwiperSlide>
-        <div className="each-slider aspect-[229/117]">
-            <img className="h-full w-full" src="https://i.ibb.co/GdH4rmJ/bailey-zindel-NRQV-h-BF10-M-unsplash.jpg" alt="" />
-        </div>
-        </SwiperSlide>
+      {images?.map(
+        (
+          image,
+          index
+        ) => (
+          <SwiperSlide key={index}>
+            <div className="each-slider aspect-[229/117] relative">
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-secondary font-medium text-base">
+                <span>{image?.photographer}</span>
+              </div>
+              <img
+                className="h-full w-full object-cover"
+                src={image?.src?.original}
+                alt=""
+              />
+            </div>
+          </SwiperSlide>
+        )
+      )}
     </Swiper>
   );
 };
