@@ -6,24 +6,17 @@ import { useEffect, useState } from "react";
 import {allCollectionsPagination, getTabWiseContent} from "../../api/api";
 
 const GalleryTabs = () => {
-  const [activeTab, setActiveTab] = useState("All");
+  const [activeTab, setActiveTab] = useState(1);
   const [loading, setLoading] = useState(true);
-  const [images, setImages] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  console.log(currentPage);
-  const imagesPerPage = 21; // Number of images per page
-  const totalPages = 5;
+  const [contents, setContent] = useState([]);
+  const contentsPerPage = 27; // Number of contents per page
 
   useEffect(() => {
-    allCollectionsPagination(imagesPerPage, currentPage, setImages, setLoading);
-  }, [currentPage]);
-
-  const handleTabClick = (tabId) => {
-    setActiveTab(tabId);
-  };
+    allCollectionsPagination(contentsPerPage, setContent, setLoading);
+  }, []);
 
   return (
-    <section className="GalleryTabsSection mx-auto px-8 md:px-[128px]">
+    <section className="GalleryTabsSection mx-auto px-8 md:px-[128px] mb-24">
       <div className="GalleryTabsContainer">
         <div className="GalleryTabs border-none flex items-center justify-between">
           <ul
@@ -42,7 +35,10 @@ const GalleryTabs = () => {
                   role="tab"
                   aria-controls={tab.id}
                   aria-selected={activeTab === tab.id ? "true" : "false"}
-                  onClick={() => getTabWiseContent(tab?.api, setImages, setLoading)}
+                  onClick={() => {
+                    getTabWiseContent(tab?.api, setContent, setLoading, tab?.id)
+                    setActiveTab(tab.id)
+                }}
                 >
                   {tab.title}
                 </button>
@@ -109,10 +105,8 @@ const GalleryTabs = () => {
         </div>
         <MasonryGallery 
             loading={loading}
-            images={images}
-            currentPage={currentPage}
-            setCurrentPage={setCurrentPage}
-            totalPages={totalPages}
+            contents={contents}
+            activeTab={activeTab}
         />
       </div>
     </section>
