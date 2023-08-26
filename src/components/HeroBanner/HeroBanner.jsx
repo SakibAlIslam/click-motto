@@ -4,6 +4,8 @@ import styles from "./HeroBanner.module.css";
 const HeroBanner = () => {
   return (
     <section className={styles.heroBannerSection}>
+      <div className={styles.heroBannerOverlay}>
+      </div>
       <div className={styles.heroBanner}>
         <div className={styles.heroBannerContent}>
           <h1 className={styles.heroBannerTitle}>

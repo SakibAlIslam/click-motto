@@ -8,7 +8,7 @@ import { getAllTopCategories } from "../../api/api";
 
 const TopCategoriesSlider = () => {
   const [images, setImage] = useState([]);
-  const contentsPerPage = 6;
+  const contentsPerPage = 10;
 
   useEffect(() => {
     getAllTopCategories(contentsPerPage, setImage);
@@ -18,8 +18,6 @@ const TopCategoriesSlider = () => {
     <Swiper
       spaceBetween={32}
       slidesPerView={5}
-      onSlideChange={() => console.log("slide change")}
-      onSwiper={(swiper) => console.log(swiper)}
       navigation={true}
       modules={[Navigation]}
       className="mySwiper"
@@ -33,7 +31,7 @@ const TopCategoriesSlider = () => {
             <div className="each-slider aspect-[229/117] relative">
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black w-full h-full opacity-30">
               </div>
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-secondary font-medium text-base">
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-secondary font-medium text-xs">
                 <span>{image?.photographer}</span>
               </div>
               <img
