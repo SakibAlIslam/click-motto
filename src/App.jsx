@@ -1,21 +1,20 @@
-import { useState } from 'react'
-import './App.css'
-import HeroBanner from './components/HeroBanner/HeroBanner'
-import Navbar from './components/Navbar/Navbar'
-import TopCategories from './components/TopCategories/TopCategories'
+import "./App.css";
+import HeroBanner from "./components/HeroBanner/HeroBanner";
+import MasonryGallery from "./components/MasonryGallery/MasonryGallery";
+import Navbar from "./components/Navbar/Navbar";
+import TopCategories from "./components/TopCategories/TopCategories";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-    <div>
-      <Navbar />
-      <HeroBanner />
-      <TopCategories />
-    </div>
+      <div>
+        <Navbar />
+        <HeroBanner />
+        <TopCategories />
+        <MasonryGallery />
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
