@@ -29,10 +29,7 @@ export const allCollectionsPagination = async (
   }
 };
 
-export const getAllTopCategories = async (
-  imagesPerPage,
-  setter
-) => {
+export const getAllTopCategories = async (imagesPerPage, setter) => {
   try {
     const res = await axios.get(
       `https://api.pexels.com/v1/curated?per_page=${imagesPerPage}`,
@@ -43,7 +40,7 @@ export const getAllTopCategories = async (
       }
     );
     if (res?.status === 200) {
-        setter(res?.data.photos);
+      setter(res?.data.photos);
     }
   } catch (error) {
     console.warn(error?.response?.data?.message || "Something went wrong");
@@ -74,3 +71,20 @@ export const getTabWiseContent = async (apiUrl, setter, setLoading, tabId) => {
   }
 };
 
+export const getSearchResults = async (searchQuery, setImages) => {
+  try {
+    const response = await axios.get(`https://api.pexels.com/v1/search`, {
+      headers: {
+        Authorization: apiKey,
+      },
+      params: {
+        query: searchQuery,
+      },
+    });
+    if (response?.status === 200) {
+      setImages(response?.data?.photos);
+    }
+  } catch (error) {
+    console.warn(error?.response?.data?.message || "Something went wrong");
+  }
+};

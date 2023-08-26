@@ -1,7 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import axios from "axios";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
+import {getSearchResults} from "../../api/api";
 
 const SearchPage = () => {
   const location = useLocation();
@@ -11,25 +12,7 @@ const SearchPage = () => {
   const [results, setResults] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(`https://api.pexels.com/v1/search`, {
-          headers: {
-            Authorization:
-              "70s1tgPXz4klLnwEGkTUrKuwOJXGfeJ0d6bye3HWGi3IbCQbfnVqEO6V",
-          },
-          params: {
-            query: searchQuery,
-          },
-        });
-
-        setResults(response.data.photos);
-      } catch (error) {
-        console.error("Error fetching data from Pexels API:", error);
-      }
-    };
-
-    fetchData();
+    getSearchResults(searchQuery, setResults);
   }, []);
 
   return (
