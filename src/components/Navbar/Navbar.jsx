@@ -3,7 +3,7 @@ import Button from "../Button/Button";
 
 const Navbar = () => {
   return (
-    <nav className="border-gray-200 bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
+    <nav className="bg-secondary">
       <div className="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="#" className="flex items-center">
           <img
