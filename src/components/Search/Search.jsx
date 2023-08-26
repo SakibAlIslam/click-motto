@@ -12,7 +12,7 @@ const Search = ({
             <input
               type="text"
               id="simple-search"
-              className="bg-secondary border-none outline-none text-[#333333] text-[22px] focus:ring-transparent focus:border-transparent block w-full p-0 "
+              className="bg-secondary border-none outline-none text-[#333333] text-base md:text-[22px] focus:ring-transparent focus:border-transparent block w-full p-0 "
               placeholder={placeholder}
               required
             />

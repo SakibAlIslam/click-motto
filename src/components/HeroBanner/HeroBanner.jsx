@@ -13,7 +13,7 @@ const HeroBanner = () => {
             their creators
           </h1>
           <Search placeholder={"Search photos and videos"} />
-          <p className="text-left pl-[30px] mt-4 text-lg text-secondary">Recommended: <span className="opacity-70">summer, food, covid-19, real estate, love</span></p>
+          <p className="text-left pl-3 md:pl-[30px] mt-3 text-lg text-secondary">Recommended: <span className="opacity-70">summer, food, covid-19, real estate, love</span></p>
         </div>
       </div>
     </section>

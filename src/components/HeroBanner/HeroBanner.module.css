@@ -22,7 +22,6 @@
 .heroBannerContent {
     left: 50%;
     position: absolute;
-    text-align: center;
     top: 40%;
     transform: translate(-50%, -50%);
     max-width: 60vw;
@@ -38,4 +37,31 @@
     line-height: 100%;
     margin-bottom: 1.25rem;
     padding-left: 30px;
+}
+
+@media screen and (max-width: 768px) {
+    .heroBanner {
+        position: relative;
+        height: 50vh;
+    }
+
+    .heroBannerContent {
+        position: absolute;
+        top: 10%;
+        left: 8px;
+        transform: translate(0%, 0%);
+        max-width: 95vw;
+        min-width: 95vw;
+        padding-left: 8px;
+        padding-right: 8px;
+        z-index: 10;
+    }
+
+    .heroBannerTitle {
+        font-size: 28px;
+        line-height: 30px;
+        font-weight: 500;
+        margin-bottom: 1rem;
+        padding-left: 12px;
+    }
 }
