@@ -6,7 +6,7 @@
 .heroBanner {
     background: url(https://i.ibb.co/GdH4rmJ/bailey-zindel-NRQV-h-BF10-M-unsplash.jpg) no-repeat center center;
     background-size: cover;
-    height: 70vh;
+    height: 75vh;
     position: relative;
     width: 100%;
 }
@@ -15,7 +15,7 @@
     left: 50%;
     position: absolute;
     text-align: center;
-    top: 50%;
+    top: 40%;
     transform: translate(-50%, -50%);
     max-width: 60vw;
     min-width: 56vw;

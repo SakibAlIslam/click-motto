@@ -17,6 +17,9 @@ export default {
         large: "20px",
         xl: "30px",
       },
+      aspectRatio: {
+        '229/117': '229 / 117'
+      },
     },
   },
   plugins: [
